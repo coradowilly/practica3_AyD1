@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { HistorialComponent } from './components/historial/historial.component';
@@ -14,6 +15,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    RegistroComponent,
     CatalogoComponent,
     PagoComponent,
     HistorialComponent,
