@@ -1,1 +1,35 @@
-<p>perfil works!</p>
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+        <div class="card-header bg-light d-flex justify-content-between">
+            <h1>Actualizar Perfil: </h1>
+        </div>
+        <form action="">
+            <div class="form-group">
+                <input type="text" name="nombre"  placeholder="Nombre" class="form-control" autofocus [(ngModel)]="newUser.nombre" >
+            </div>
+            <div class="form-group">
+                <input type="text" name="apellido"  placeholder="Apellido" class="form-control"  [(ngModel)]="newUser.apellido">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email"  placeholder="Correo" class="form-control"  [(ngModel)]="newUser.email">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password"  placeholder="Contraseña" class="form-control"  [(ngModel)]="newUser.password">
+            </div>
+            <div class="form-group">
+                <input type="tel" name="telefono"  placeholder="Telefono" class="form-control"  [(ngModel)]="newUser.celular">
+            </div>
+            <div class="form-group">
+                <input type="text" name="nit"  placeholder="Nit" class="form-control"  [(ngModel)]="newUser.nit">
+            </div>
+            <div class="form-group">
+                <input type="text" name="direccion"  placeholder="Direccion" class="form-control"  [(ngModel)]="newUser.direccion">
+            </div>
+            <button class="btn btn-success btn-block" (click)="actualizar()">
+                Actualizar
+            </button>
+        </form>
+        </div>
+    </div>
+</div>
