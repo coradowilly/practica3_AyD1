@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
+  
+  newUser:any = {
+    nombre:"",
+    apellido: "",
+    email:"",
+    password:"",
+    celular:"",
+    nit:"",
+    direccion:""
+  }
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  registrar(){
+    
+  }
+
+  isError(str:string){
+
+  }
+
+  isSuccess(str:string){
+
   }
 
 }
