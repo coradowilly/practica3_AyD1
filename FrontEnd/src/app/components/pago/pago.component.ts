@@ -31,7 +31,15 @@ export class PagoComponent implements OnInit
 
   public validarTarjeta()
   {
-      
+      if ((this.credit_card.no != "") && (this.credit_card.cvv != "")) 
+      {
+          /** Codigo para usar servicio */
+      } 
+      else 
+      {
+          this.credit_card.no = "null";
+          this.credit_card.cvv = "null"
+      }
   }
 
 }
