@@ -8,6 +8,13 @@ class GiftCardController
     {
         res.json({'code':200});
     }
+
+
+    //HISTORIAL DE COMPRAS 
+    async getHistorialCompras(req : Request, res : Response) : Promise<void> //obtener todas las compras de tarjetas de un usuario
+    {
+        res.json({'code':200});
+    }
     
 }
 
