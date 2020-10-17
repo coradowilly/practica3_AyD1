@@ -14,7 +14,7 @@ class loginRoutes
 
     config() : void
     {
-        this.router.get('/login',loginControll.Login);
+        this.router.post('/login',loginControll.Login);
     }
 }
 const logineRoutes = new loginRoutes();

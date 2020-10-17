@@ -11,10 +11,10 @@ class loginController
         const query = [{correo:"prueba@gmail.com", contrasena: "12345"}];         
         if(query.length == 1){
             console.log('Acceso correcto');
-            res.status(200).json({estado: "1"});
+            res.status(200).json({estado: 1});
         }else{
             console.log('Acceso denegado'); 
-            res.status(404).json({estado: "0"});
+            res.status(404).json({estado: 0});
         }
     }
     
