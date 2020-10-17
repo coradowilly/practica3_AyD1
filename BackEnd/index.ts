@@ -1,6 +1,8 @@
 import express, {Application} from 'express';
 import giftcardRoutes from './routes/giftcardRoutes';
+import adminRoutes from './routes/adminRoutes';
 import cors from 'cors';
+import { adminController } from './controllers/adminController';
 
 class Server
 {
@@ -24,6 +26,7 @@ class Server
     routes() : void
     {
         this.app.use('/api/',giftcardRoutes);
+        this.app.use('/api/',adminRoutes);
     }
 
     listen() : void

@@ -1,13 +1,13 @@
 import {Response, Request} from 'express';
-import db from '../conf/database';
+//import db from '../conf/database';
 
 class AdminController
 {
 
-    /*async getAvailableGiftcards(req : Request, res : Response) : Promise<void> //obtener todas las Categorias
+    async getCompras(req : Request, res : Response) : Promise<void> //obtener todas compras
     {
-        res.json({'code':200});
-    }*/
+        res.status(200).json({'estado':1});
+    }
     
 }
 

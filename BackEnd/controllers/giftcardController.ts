@@ -1,5 +1,5 @@
 import {Response, Request} from 'express';
-import db from '../conf/database';
+//import db from '../conf/database';
 
 class GiftCardController
 {
