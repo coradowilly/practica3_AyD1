@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {loginControll} from '../controllers/registroController'
+import {registroControll} from '../controllers/registroController'
 
 
 class registroRoutes
