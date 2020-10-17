@@ -39,7 +39,7 @@ export class RegaloComponent implements OnInit
         {
           console.log(res);
           this.gifts = res;
-        },
+        },  
         (error) =>
         {
           console.log(error)
