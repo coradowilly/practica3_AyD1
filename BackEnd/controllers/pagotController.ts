@@ -10,11 +10,17 @@ class pagotController
        // const query1 = await db.query('INSERT INTO tarjeta (fk_usuario,numero,fecha,codigo) set ?',[id_usuario,numero,fecha,codigo]);
        // const query2 = await db.query('INSERT INTO transaccion (fk_usuario,fk_card,aprobacion,moneda,total) set ?',[id_usuario,id_card,1,moneda,total]);
        // const query3 = await db.query('INSERT INTO inventario (fk_usuario,fk_card) set ?',[id_usuario,id_card]); 
-       const query1 =[{id_usuario: 1, numero: "1234567890",fecha: "10/22",codigo: "000",id_card: 2 , moneda: "$",total: 50}]
+       const query1 =[{ moneda: "$", cambio: 7.7}, {moneda: "Q", cambio: 0}]
+        var cambiom =0;
+        for (let item of query1){
+          if(item.moneda == moneda ){
+              cambiom = item.cambio
+          }
+        }
        if(moneda == "Q"){
-        res.status(200).json({cambio: query1[0].total});
+        res.status(200).json({cambio: total});
         }else if(moneda == "$"){
-        res.status(200).json({cambio: query1[0].total*7.7});
+        res.status(200).json({cambio: total*cambiom});
         }else{
         res.status(404).json({cambio: 0});
         }
