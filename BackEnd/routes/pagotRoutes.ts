@@ -14,7 +14,7 @@ class pagotRoutes
 
     config() : void
     {
-        this.router.get('/pago',pagotControll.Pago);
+        this.router.post('/pago',pagotControll.Pago);
     }
 }
 const pagoteRoutes = new pagotRoutes();

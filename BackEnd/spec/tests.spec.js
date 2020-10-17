@@ -28,11 +28,11 @@ describe("Pruebas unitarias", () => {
     });
     
     describe("GIVEN: El usuario quiere pagar ", () => { 
-        var newEntity3 = {id_usuario: 1, numero: "1234567890",fecha: "10/22",codigo: "000",id_card: 1 , moneda: "$",total: "50"};
+        var newEntity3 = {id_usuario: 1, numero: "1234567890",fecha: "10/22",codigo: "000",id_card: 1 , moneda: "$",total: 50};
         describe("WHEN: Da click en pagar pedido", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
-                Request.get("http://localhost:3000/api/pago", (error, response, body) => {
-                    expect(response.body).toBe({status:"1"});
+                Request.post("http://localhost:3001/api/pago",{form: newEntity3}, (error, response, body) => {
+                    expect(JSON.parse(response.body).cambio).toEqual(385);
                     done();
                 })
             });
