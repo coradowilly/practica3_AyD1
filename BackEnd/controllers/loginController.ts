@@ -1,7 +1,7 @@
 import {Response, Request} from 'express';
 import db from '../conf/database';
 
-class userController
+class loginController
 {
 
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
@@ -21,4 +21,4 @@ class userController
     
 }
 
-export const userControll = new userController();
+export const loginControll = new loginController();
