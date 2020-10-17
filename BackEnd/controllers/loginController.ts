@@ -1,5 +1,5 @@
 import {Response, Request} from 'express';
-import db from '../conf/database';
+//import db from '../conf/database';
 
 class loginController
 {
@@ -7,9 +7,8 @@ class loginController
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
     {
         const { correo, contrasena} = req.body;
-        const query = await db.query('SELECT * FROM usuario WHERE correo=? and contrasena=?',[correo,contrasena]);
-        console.log(query.rows);
-         
+       // const query = await db.query('SELECT * FROM usuario WHERE correo=? and contrasena=?',[correo,contrasena]);
+        const query = [{correo:"prueba@gmail.com", contrasena: "12345"}];         
         if(query.length == 1){
             console.log('Acceso correcto');
             res.status(200).json({estado: "1"});

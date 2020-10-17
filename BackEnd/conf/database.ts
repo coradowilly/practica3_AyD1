@@ -1,4 +1,4 @@
-import mysql from 'promise-mysql';
+/*import mysql from 'promise-mysql';
 import keys from './keys';
 
 
@@ -10,4 +10,4 @@ pool.getConnection()
         console.log("Conexion a la BD satisfactoria!");
     });
 
-export default pool;
+export default pool;*/
