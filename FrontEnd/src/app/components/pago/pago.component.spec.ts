@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {creditcard} from '../../models/creditcard';
 import { PagoComponent } from './pago.component';
 
-fdescribe('PagoComponent', () => {
+describe('PagoComponent', () => {
   let component: PagoComponent;
   let fixture: ComponentFixture<PagoComponent>;
 
