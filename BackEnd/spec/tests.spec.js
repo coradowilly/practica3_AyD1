@@ -28,7 +28,7 @@ describe("Pruebas unitarias", () => {
         describe("WHEN: El usuario require consultar su historial", ()=>{
             it("THEN: Se retorna el historial de compra de giftcards ", (done)=>{
                 Request.post("http://localhost:3001/api/getHistorial", {form: send}, (error, response, body) => {
-                    expect(response.statusCode).toBe(404);
+                    expect(response.statusCode).toBe(200);
                     done();
                 })
             });
