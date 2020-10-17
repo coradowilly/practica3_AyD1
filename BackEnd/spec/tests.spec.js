@@ -23,7 +23,7 @@ describe("Pruebas unitarias", () => {
             var verify;
             it("THEN: Retorna un mensaje de verificacion", (done)=>{
    
-                Request.post("http://localhost:3000/api/editarperfil", {form:send} , (error, response, body) => {
+                Request.post("http://localhost:3000/api/editperfil", {form:send} , (error, response, body) => {
                     state = JSON.parse(response.body).state;
                     verify= JSON.parse(response.body).mensaje;
                    if(state === 1){
