@@ -14,7 +14,7 @@ class registroRoutes
 
     config() : void
     {
-        this.router.get('/registro',registroControll.Registro);
+        this.router.post('/registro',registroControll.Registro);
     }
 }
 const registroeRoutes = new registroRoutes();
