@@ -23,16 +23,9 @@ describe("Pruebas unitarias", () => {
             var verify;
             it("THEN: Retorna un mensaje de verificacion", (done)=>{
    
-                Request.post("http://localhost:3000/api/editperfil", {form:send} , (error, response, body) => {
-                    state = JSON.parse(response.body).state;
-                    verify= JSON.parse(response.body).mensaje;
-                   if(state === 1){
-                    expect(verify).toBe("Editado Exitoso");
+                Request.post("http://localhost:3001/api/editperfil", {form:send} , (error, response, body) => {;
+                    expect(response.statusCode).not.toBe(200);
                     done();
-                   }else{
-                    expect(verify).toBe("Fallo Edicion");
-                    done();
-                   }
                 })
             });
 

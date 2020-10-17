@@ -1,5 +1,5 @@
 import mysql from 'promise-mysql';
-import keys from './keys';
+/*import keys from './keys';
 
 
 const pool = mysql.createPool(keys.database);
@@ -10,4 +10,4 @@ pool.getConnection()
         console.log("Conexion a la BD satisfactoria!");
     });
 
-export default pool;
+export default pool;*/
