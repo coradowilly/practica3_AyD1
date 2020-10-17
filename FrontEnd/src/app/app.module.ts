@@ -10,6 +10,7 @@ import { PagoComponent } from './components/pago/pago.component';
 import { HistorialComponent } from './components/historial/historial.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { RegaloComponent } from './components/regalo/regalo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     PagoComponent,
     HistorialComponent,
     InventarioComponent,
-    PerfilComponent
+    PerfilComponent,
+    RegaloComponent
   ],
   imports: [
     BrowserModule,
