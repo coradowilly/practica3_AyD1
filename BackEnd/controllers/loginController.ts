@@ -6,8 +6,8 @@ class loginController
 
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
     {
-        const { email, contrasena} = req.body;
-        const query = await db.query('SELECT * FROM usuario WHERE email=? and contrasena=?',[email,contrasena]);
+        const { correo, contrasena} = req.body;
+        const query = await db.query('SELECT * FROM usuario WHERE correo=? and contrasena=?',[correo,contrasena]);
         console.log(query.rows);
          
         if(query.length == 1){
