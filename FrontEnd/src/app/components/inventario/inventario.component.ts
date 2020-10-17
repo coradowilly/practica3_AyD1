@@ -23,7 +23,19 @@ export class InventarioComponent implements OnInit
 
   public showInventario() 
   { 
-    
+      /** Codigo de showInventario -- */
+      
+      this.inventario_service.getInventario().subscribe(
+        (res) =>
+        {
+          console.log(res);
+          this.inventario = res;
+        },
+        (error) =>
+        {
+          console.log(error)
+        }
+      ); 
   }
 
 }
