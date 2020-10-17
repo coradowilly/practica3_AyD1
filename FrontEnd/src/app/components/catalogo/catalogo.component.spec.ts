@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import {carrito} from '../../models/carrito';
 import { CatalogoComponent } from './catalogo.component';
 
-fdescribe('CatalogoComponent', () => {
+describe('CatalogoComponent', () => {
   let component: CatalogoComponent;
   let fixture: ComponentFixture<CatalogoComponent>;
 
