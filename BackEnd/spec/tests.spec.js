@@ -28,7 +28,7 @@ describe("Pruebas unitarias", () => {
     });
     
     describe("GIVEN: El usuario intenta registrarse", () => { 
-        var newEntity3 = {username: "prueba1",correo:"prueba@gmail.com",nombres: "prueba", contrasena: "12345",dpi: "123456789",edad: "23",apellidos: "Espino"};
+        var newEntity3 = {username: "prueba1",correo:"prueba@gmail.com",nombres: "prueba", contrasena: "12345",dpi: 12345678,edad: 23,apellidos: "Espino"};
         describe("WHEN: Da click en registrar usuario", ()=>{
             it("THEN: Retorna el status de la peticion", (done)=>{
                 Request.post("http://localhost:3001/api/registro", {form: newEntity3}, (error, response, body) => {

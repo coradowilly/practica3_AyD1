@@ -8,8 +8,13 @@ class registroController
     {
         const { username,correo,nombres, contrasena,dpi,edad,apellidos} = req.body;
        // const query = await db.query('INSERT INTO usuario set ?',[username,correo,nombres,contrasena,dpi,edad,apellidos]);
-       const query = [{username: "prueba1",correo:"prueba@gmail.com",nombres: "prueba", contrasena: "12345",dpi: "123456789",edad: "23",apellidos: "Espino"}];  
-       if(query[0].username == username && correo== query[0].correo){
+       const query = [];
+       console.log(query.length)
+       if(username != "" && correo != "" && nombres != ""&&contrasena!="" && dpi != 0 && edad!=0 && apellidos!= ""){
+       query[0] = {username: username,correo:correo,nombres: nombres, contrasena:contrasena,dpi: dpi,edad:edad,apellidos: apellidos};  
+       }
+       console.log(query.length);
+       if(query.length > 0){
         console.log('Registro correcto');
         res.status(200).json({estado: 1});
         }else{
