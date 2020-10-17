@@ -24,7 +24,19 @@ export class HistorialComponent implements OnInit
 
   public showHistorial() 
   { 
+      /** Codigo de showHistorial -- */
       
+      this.historialService.getHistorial().subscribe(
+        (res) =>
+        {
+          console.log(res);
+          this.historial = res;
+        },
+        (error) =>
+        {
+          console.log(error)
+        }
+      ); 
   }
 
 }
