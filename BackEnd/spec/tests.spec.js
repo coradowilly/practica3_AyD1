@@ -28,7 +28,7 @@ describe("Pruebas unitarias", () => {
     });
     
     describe("GIVEN: El usuario intenta acceder (LOGIN)", () => { 
-        var newEntity3 = {email:"prueba@gmail.com", password: "12345"};
+        var newEntity3 = {email:"prueba@gmail.com", contrasena: "12345"};
         describe("WHEN: Da click en iniciar sesion", ()=>{
             it("THEN: Retorna un estado de verificacion de datos", (done)=>{
                 Request.get("http://localhost:3000/api/login", (error, response, body) => {

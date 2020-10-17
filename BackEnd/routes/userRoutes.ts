@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {userController} from '../controllers/userController'
+import {userControll} from '../controllers/userController'
 
 
 class userRoutes
@@ -14,7 +14,7 @@ class userRoutes
 
     config() : void
     {
-        this.router.get('/login',userController.getUser);
+        this.router.get('/login',userControll.Login);
     }
 }
 const categoriesRoutes = new userRoutes();
