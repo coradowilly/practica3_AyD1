@@ -32,12 +32,31 @@ export class RegaloComponent implements OnInit
 
   public cargarTarjetas()
   {
+      /** Codigo de cargarTarjetas -- */
       
+      this.regaloService.getTarjetas().subscribe(
+        (res) =>
+        {
+          console.log(res);
+          this.gifts = res;
+        },
+        (error) =>
+        {
+          console.log(error)
+        }
+      ); 
   }
 
   public regalar()
   {
-      
+      if (this.gift.id_card != "") 
+      {
+
+      } 
+      else 
+      {
+          this.gift.id_card = "vacio";
+      }
   }
 
 }
