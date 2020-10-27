@@ -11,6 +11,7 @@ import { PagoComponent } from './components/pago/pago.component';
 import { HistorialComponent } from './components/historial/historial.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

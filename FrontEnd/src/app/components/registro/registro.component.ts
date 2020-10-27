@@ -1,6 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistroService } from 'src/app/services/registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,30 +13,39 @@ export class RegistroComponent implements OnInit {
   @HostBinding('class') classes = 'row';
   
   newUser:any = {
-    nombre:"",
-    apellido: "",
-    email:"",
-    password:"",
-    celular:"",
-    nit:"",
-    direccion:""
+    username:"",
+    correo: "",
+    nombres:"",
+    constrasena:"",
+    dpi:"",
+    edad:"",
+    apellidos:""
   }
   
-  constructor(private router: Router) { }
+  constructor(private router: Router,private servicio:RegistroService) { }
 
   ngOnInit(): void {
   }
 
   registrar(){
-    
+    this.servicio.sigup(this.newUser)
+    .subscribe(
+      res=>{
+        this.isSuccess("Registrado con exito");
+        this.router.navigate(['/login']);
+      },
+      err=>{
+        this.isError("Revisa tus datos");
+      }
+    )
   }
 
   isError(str:string){
-
+    alert(str)
   }
 
   isSuccess(str:string){
-
+    alert(str)
   }
 
 }
