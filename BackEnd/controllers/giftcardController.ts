@@ -12,6 +12,15 @@ class GiftCardController
         res.json(giftCards);
     }
 
+    async changeOwner(req : Request, res : Response) : Promise<void>
+    {
+        var currentOwner = req.params.ownerid;
+        var newOwner = req.params.newownerid;
+        var giftCard = req.params.giftcard;
+        await db.query("UPDATE giftcard SET ownerId = ? WHERE ownerId = ? AND id = ? ", [newOwner, currentOwner, giftCard]);
+        res.json({statusCode:200});
+    }
+
     async placeNewOrder(req : Request, res : Response): Promise<void>
     {
         console.log("Alvvvv");
