@@ -12,6 +12,8 @@ import { HistorialComponent } from './components/historial/historial.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

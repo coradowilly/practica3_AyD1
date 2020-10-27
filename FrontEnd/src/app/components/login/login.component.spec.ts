@@ -7,13 +7,13 @@ import { LoginComponent } from './login.component';
 class MockLogin{
 
   tmpUser:any = {
-    email:'usertemp@gmail.com',
-    password:'12345'
+    correo:'usertemp@gmail.com',
+    contrasena:'12345'
   };
 
   userCurrent:any = {
-    email:'',
-    password:''
+    correo:'',
+    contrasena:''
   };  
 
   login():boolean{
@@ -32,7 +32,7 @@ class MockLogin{
   }
 
   queryDB(user:any):boolean{
-    if(this.tmpUser.email == this.userCurrent.email && this.tmpUser.password == this.userCurrent.password){
+    if(this.tmpUser.correo == this.userCurrent.correo && this.tmpUser.contrasena == this.userCurrent.contrasena){
       return true;
     } else {
       return false;
@@ -72,8 +72,8 @@ describe('LoginComponent', () => {
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect login return true",()=>{
           let correctUser:any = {
-            email:'usertemp@gmail.com',
-            password:'12345'
+            correo:'usertemp@gmail.com',
+            contrasena:'12345'
           }  
           service.userCurrent = correctUser;
           expect(service.login()).toEqual(true);
@@ -87,8 +87,8 @@ describe('LoginComponent', () => {
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect login return false",()=>{
           let inCorrectUser:any = {
-            email:'usertemp@gmail.com',
-            password:'54321'
+            correo:'usertemp@gmail.com',
+            contrasena:'54321'
           }
           service.userCurrent = inCorrectUser;
           expect(service.login()).not.toEqual(true);
