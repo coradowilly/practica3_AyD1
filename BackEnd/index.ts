@@ -15,7 +15,7 @@ class Server
 
     config() : void
     {
-        this.app.set('port', 3001);
+        this.app.set('port', 3002);
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended : false}));

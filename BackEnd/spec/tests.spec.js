@@ -17,7 +17,7 @@ describe("Pruebas unitarias", () => {
     it("GET /giftcards - statusCode|Content-Type|BodyLength", (done) => 
     {
          //var data = {};
-         Request.get("http://localhost:3001/api/giftcards", (error, response, body) => {
+         Request.get("http://localhost:3002/api/giftcards/-1", (error, response, body) => {
              /*data.status = response.statusCode;
              data.body = response.body;*/
              expect(response.statusCode).toBe(200);
@@ -27,16 +27,6 @@ describe("Pruebas unitarias", () => {
          })
     });
 
-    /*it("POST /giftcards - statusCode", (done) => 
-    {
-         //var data = {};
-         Request.post("http://localhost:3001/api/giftcards", (error, response, body) => {
-
-             expect(response.statusCode).toBe(200);
-             expect(response.body.insertionId).toBeGreaterThan(0);
-             done();
-         })
-    });*/
 
 });
 
