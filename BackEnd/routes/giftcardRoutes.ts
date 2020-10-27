@@ -14,7 +14,9 @@ class CategoryRoutes
 
     config() : void
     {
-        this.router.get('/giftcards',giftCardController.getAvailableGiftcards);
+        this.router.post('/giftcards/placeOrder', giftCardController.placeNewOrder);
+        this.router.get('/giftcards/:userid', giftCardController.getGiftcards);
+        this.router.post('/giftcards/changeOwner/:giftcard/:ownerid/:newownerid', giftCardController.changeOwner)
     }
 }
 const categoriesRoutes = new CategoryRoutes();
