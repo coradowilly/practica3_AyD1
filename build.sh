@@ -4,8 +4,9 @@ ssh ubuntu@ec2-18-206-168-172.compute-1.amazonaws.com <<EOF
  cd AyD_Lab
  cd practica3_AyD1
  cd BackEnd
+ git remote 
  git checkout develop
- git pull
+ git pull origin master
  npm install
  tsc
  echo 'PM2 starting restart'
