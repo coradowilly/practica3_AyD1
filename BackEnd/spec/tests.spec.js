@@ -27,7 +27,20 @@ describe("Pruebas unitarias", () => {
          })
     });
 
+    describe("GIVEN: El usuario intenta registrarse", () => { 
+        var newEntity3 = {username:"prueba",email:"prueba@gmail.com",password:"1234",firstname:"Nery",lastname:"Condon",dpi:"123456",age:"23"};
+        describe("WHEN: Da click en registrar usuario", ()=>{
+            it("THEN: Retorna el status de la peticion", (done)=>{
+                Request.post("http://localhost:3001/api/registro", {form: newEntity3}, (error, response, body) => {
+                    expect(response.statusCode).toBe(200);
+                    done();
+                })
+            });
 
+        });
+    
+    });
+    
 });
 
 

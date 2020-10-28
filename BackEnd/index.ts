@@ -1,5 +1,6 @@
 import express, {Application} from 'express';
 import giftcardRoutes from './routes/giftcardRoutes';
+import registroRoutes from './routes/registroRoutes';
 import cors from 'cors';
 
 class Server
@@ -26,6 +27,7 @@ class Server
     routes() : void
     {
         this.app.use('/api/',giftcardRoutes);
+        this.app.use('/api/',registroRoutes);
     }
 
     listen() : void
