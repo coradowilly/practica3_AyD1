@@ -15,6 +15,7 @@ class PerfilRoutes
     config() : void
     {
         this.router.put('/editperfil',perfilController.updateDataUser);
+        this.router.get('/getUsers',perfilController.getUsers);
     }
 }
 const perfilRoutes = new PerfilRoutes();
