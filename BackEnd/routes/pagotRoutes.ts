@@ -14,6 +14,7 @@ class pagotRoutes
 
     config() : void
     {
+        this.router.post('/registrartarjeta',pagotControll.RegistrarTCRE);
         this.router.post('/pago',pagotControll.Pago);
     }
 }

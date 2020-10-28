@@ -27,12 +27,13 @@ describe("Pruebas unitarias", () => {
         server3.close();
     });
     
+    //registrar tarjeta
     describe("GIVEN: El usuario quiere pagar ", () => { 
-        var newEntity3 = {id_usuario: 1, numero: "1234567890",fecha: "10/22",codigo: "000",id_card: 1 , moneda: "$",total: 50};
+        var newEntity3 = {userid:1, cardNumber:132165,nameOnCard:"prueba",expiryDate:'2020-10-09',cvv:555};
         describe("WHEN: Da click en pagar pedido", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
-                Request.post("http://localhost:3001/api/pago",{form: newEntity3}, (error, response, body) => {
-                    expect(JSON.parse(response.body).cambio).toEqual(385);
+                Request.post("http://localhost:3001/api/registrartarjeta",{form: newEntity3}, (error, response, body) => {
+                    expect(response.statusCode).toBe(200);
                     done();
                 })
             });
