@@ -28,14 +28,13 @@ describe("Pruebas unitarias", () => {
     });
     
     describe("GIVEN: El usuario intenta acceder (LOGIN)", () => { 
-        var newEntity3 = {correo:"prueba@gmail.com", contrasena: "12345"};
+        var newEntity3 = {email:"prueba@gmail.com", password: "12345"};
         describe("WHEN: Da click en iniciar sesion", ()=>{
             it("THEN: Retorna un estado de verificacion de datos", (done)=>{
                 Request.post("http://localhost:3001/api/login", {form: newEntity3}, (error, response, body) => {
-                var esta = JSON.parse(response.body).estado;
-                console.log(esta);
-                expect(esta).toBe(1);
-                    done();
+                var esta = JSON.parse(response.body).Acceso;
+                expect(esta).toBe("Denegado");
+                done();
                 })
             });
 
