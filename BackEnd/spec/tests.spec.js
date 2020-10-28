@@ -31,20 +31,20 @@ describe("Pruebas unitarias", () => {
         var newEntity3 = {username:"prueba",email:"prueba@gmail.com",password:"1234",firstname:"Nery",lastname:"Condon",dpi:"123456",age:"23"};
         describe("WHEN: Da click en registrar usuario", ()=>{
             it("THEN: Retorna el status de la peticion", (done)=>{
-                Request.post("http://localhost:3001/api/registro", {form: newEntity3}, (error, response, body) => {
+                Request.post("http://localhost:3002/api/registro", {form: newEntity3}, (error, response, body) => {
                     expect(response.statusCode).toBe(200);
                     done();
                 })
             });
 
         });
-    
+    });
 
     describe("GIVEN: El usuario intenta acceder (LOGIN)", () => { 
         var newEntity3 = {email:"prueba@gmail.com", password: "12345"};
         describe("WHEN: Da click en iniciar sesion", ()=>{
             it("THEN: Retorna un estado de verificacion de datos", (done)=>{
-                Request.post("http://localhost:3001/api/login", {form: newEntity3}, (error, response, body) => {
+                Request.post("http://localhost:3002/api/login", {form: newEntity3}, (error, response, body) => {
                 var esta = JSON.parse(response.body).Acceso;
                 expect(esta).toBe("Denegado");
                 done();
