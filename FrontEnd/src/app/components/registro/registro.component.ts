@@ -28,16 +28,18 @@ export class RegistroComponent implements OnInit {
   }
 
   registrar(){
-    this.servicio.sigup(this.newUser)
-    .subscribe(
-      res=>{
-        this.isSuccess("Registrado con exito");
-        this.router.navigate(['/login']);
-      },
-      err=>{
-        this.isError("Revisa tus datos");
-      }
-    )
+    if(this.newUser.email != ""){
+      this.servicio.sigup(this.newUser)
+      .subscribe(
+        res=>{
+          this.isSuccess("Registrado con exito");
+          this.router.navigate(['/login']);
+        },
+        err=>{
+          this.isError("Revisa tus datos");
+        }
+      )
+    }
   }
 
   isError(str:string){
