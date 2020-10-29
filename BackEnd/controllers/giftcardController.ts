@@ -1,5 +1,5 @@
 import {Response, Request} from 'express';
-//import db from '../conf/database';
+import db from '../conf/database';
 
 class GiftCardController
 {
@@ -13,15 +13,10 @@ class GiftCardController
     //HISTORIAL DE COMPRAS 
     async getHistorialCompras(req : Request, res : Response) : Promise<void> //obtener todas las compras de tarjetas de un usuario
     {
-        const { username} = req.body;
-       // const query = await db.query('INSERT INTO usuario set ?',[username,correo,nombres,contrasena,dpi,edad,apellidos]);
-       const query = [{username: "user1",correo:"prueba@gmail.com",nombres: "prueba", contrasena: "12345",dpi: "123456789",edad: "23",apellidos: "Espino"}];  
-       if(query[0].username == username ){
-           console.log('Retornando lista de compras de un usuario');
-           res.status(200).json({estado: 1});
-       }else{
-           res.status(404).json({estado: 0});
-       }
+        var id = req.params.id;
+        console.log(id);
+        const queryhistorial = await db.query("SELECT t.id, t.date, g.code, tg.ammountPaid, g.type FROM transaction AS t JOIN User AS u ON t.idUser = u.id JOIN giftcard AS g ON u.id = g.ownerId JOIN transaction_giftcard AS tg ON t.idUser = tg.transactionId  WHERE t.idUser = ? ORDER BY t.id, t.date, g.code, tg.ammountPaid, g.type", [id]);
+        res.json(queryhistorial);
     }
     
 }

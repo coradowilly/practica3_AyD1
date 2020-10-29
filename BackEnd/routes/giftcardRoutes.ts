@@ -15,7 +15,7 @@ class CategoryRoutes
     config() : void
     {
         this.router.get('/giftcards',giftCardController.getAvailableGiftcards);
-        this.router.get('/getHistorial',giftCardController.getHistorialCompras);
+        this.router.get('/getHistorial/:id',giftCardController.getHistorialCompras);
     }
 }
 const categoriesRoutes = new CategoryRoutes();
