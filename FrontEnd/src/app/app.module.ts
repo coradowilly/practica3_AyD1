@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { PagoComponent } from './components/pago/pago.component';
 import { HistorialComponent } from './components/historial/historial.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,18 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     PagoComponent,
     HistorialComponent,
     InventarioComponent,
-    PerfilComponent
+    PerfilComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
