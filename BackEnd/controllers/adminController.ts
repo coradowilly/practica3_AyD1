@@ -10,6 +10,7 @@ class AdminController
         //console.log(id);
         const querycompras = await db.query("SELECT u.username, t.id, t.date, g.code, tg.ammountPaid, g.type, g.credit FROM transaction AS t JOIN User AS u ON t.idUser = u.id JOIN giftcard AS g ON u.id = g.ownerId JOIN transaction_giftcard AS tg ON t.idUser = tg.transactionId ", []);
         res.json(querycompras);
+        console.log("compras");
     }
     
     /*async getCatalogo(req : Request, res : Response) : Promise<void> //obtener el catalogo
