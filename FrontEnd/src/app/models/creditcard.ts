@@ -1,10 +1,9 @@
 export class creditcard{
     
-    no?:string;
-    date?:string;
+    userid?:string;
+    cardNumber?:string;
+    expiryDate?:string;
     cvv?:string;
-    name?:string;
-    monto?:string;
-    moneda?:string;
+    nameOnCard?:string;
 
 }

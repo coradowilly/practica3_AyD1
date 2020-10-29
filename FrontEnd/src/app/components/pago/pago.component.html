@@ -3,17 +3,17 @@
 </div>
 <!-- ----------------------------------------------------------------------------------------------- -->
 
-<!-- Formulario de pago -->
+<!-- Formulario de ingreso de nueva tarjeta -->
 <div>
     <form>
         <div class="form-row">
         <div class="form-group col-md-6">
             &nbsp;&nbsp;&nbsp; <label for="input1">Número de tarjeta de crédito</label>
-            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input1" placeholder="   no. tarjeta de credito" name="no" [(ngModel)]="credit_card.no">
+            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input1" placeholder="   no. tarjeta de credito" name="no" [(ngModel)]="credit_card.cardNumber">
         </div>
         <div class="form-group col-md-3">      
             &nbsp;&nbsp;&nbsp; <label for="input2">Fecha de expiración</label>
-            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input2" placeholder="   MM/YY" name="date" [(ngModel)]="credit_card.date">
+            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input2" placeholder="   YYYY-MM-DD" name="date" [(ngModel)]="credit_card.expiryDate">
         </div>
         <div class="form-group col-md-3">      
             &nbsp;&nbsp;&nbsp; <label for="input3">CVV</label>
@@ -25,21 +25,39 @@
 
         <div class="form-group">
             &nbsp;&nbsp;&nbsp; <label for="input4">Nombre en la tarjeta</label>
-            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input4" placeholder="   Nombre en la tarjeta" name="name" [(ngModel)]="credit_card.name">
+            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input4" placeholder="   Nombre en la tarjeta" name="name" [(ngModel)]="credit_card.nameOnCard">
         </div>
 
-        <div class="form-group">
-            &nbsp;&nbsp;&nbsp; <label for="input5">Monto a pagar</label>
-            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input5" name="monto" [(ngModel)]="credit_card.monto">
-        </div>
-
-        <div class="form-group">
-            &nbsp;&nbsp;&nbsp; <label for="input6">Moneda</label>
-            &nbsp;&nbsp;&nbsp; <input type="text" class="form-control" id="input6" name="moneda" [(ngModel)]="credit_card.moneda">
-        </div>
-
-        &nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-success">Comprar</button>
+        &nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-success" (click)="agregarTarjeta()">agergar tarjeta</button>
 
     </form>
+</div>
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+<hr>
+
+<!-- ver tarjetas disponibles para compra -->
+<div>
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">no tarjeta</th>             
+                <th scope="col">nombre en tarjeta</th>                  
+                <th scope="col">expira el</th>                                      
+            </tr>
+        </thead>
+    
+        <!--    -->
+    
+        <tbody>
+            <tr *ngFor="let item of credictcards_disponibles">
+                <td> {{item.cardNumber}}    </td>
+                <td> {{item.nameOnCard}}    </td>
+                <td> {{item.expiryDate}}    </td>
+            </tr>
+        </tbody>
+    
+    </table>
 </div>
 <!-- ----------------------------------------------------------------------------------------------- -->
