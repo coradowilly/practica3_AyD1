@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import {carrito} from '../../models/carrito';
 import { CatalogoComponent } from './catalogo.component';
+import {CatalogoService} from '../../services/catalogo.service';
 
 describe('CatalogoComponent', () => {
   let component: CatalogoComponent;
@@ -11,7 +12,7 @@ describe('CatalogoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
-      providers: [],
+      providers: [CatalogoService],
       declarations: [ CatalogoComponent ]
     })
     .compileComponents();

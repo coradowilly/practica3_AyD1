@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {carrito} from '../../models/carrito';
+import {CatalogoService} from '../../services/catalogo.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -12,7 +13,7 @@ export class CatalogoComponent implements OnInit
   public cards:any;
   public carrito: Array<carrito>; 
 
-  constructor() 
+  constructor(private catalogoservice:CatalogoService) 
   { 
       /** Codigo constructor -- */
       this.carrito = new Array<carrito>();
@@ -32,18 +33,18 @@ export class CatalogoComponent implements OnInit
         { id:2, name: "card2", image: "image2", chargeRate: "chargeRate2", Active:"Ative2", availability:"availability2" },
         { id:3, name: "card3", image: "image3", chargeRate: "chargeRate3", Active:"Ative3", availability:"availability3" }
       ];
-    /*
-    this.catalogo.getProductos().subscribe(
-      (res) =>
-      {
-        console.log('Respuesta Node',res);
-        this.cards = res;
-      },
-      (error) =>
-      {
-        console.log(error)
-      }
-    );*/   
+    
+      this.catalogoservice.getAllCards().subscribe(
+        (res) =>
+        {
+          console.log('Respuesta Node',res);
+          this.cards = res;
+        },
+        (error) =>
+        {
+          console.log(error)
+        }
+      );  
   }
 
   public addCarrito(item:any)
