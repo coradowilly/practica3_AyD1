@@ -14,6 +14,7 @@ class AdminRoutes
     config() : void
     {
         this.router.get('/getcompras',adminController.getCompras);
+        //this.router.get('/getCatalogo',adminController.getCatalogo);
     }
 }
 const adminRoutes = new AdminRoutes();
