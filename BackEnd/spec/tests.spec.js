@@ -69,18 +69,19 @@ describe("Pruebas unitarias", () => {
     });
     
     //obtener tarjeta
-    /*describe("GIVEN: El usuario quiere pagar ", () => { 
-        var newEntity4 = {userid:1,cardNumber:123};
+    describe("GIVEN: El usuario quiere pagar ", () => { 
+        var newEntity4 = {userid:1};
         describe("WHEN: Da click en registrar tarjeta", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
                 Request.post("http://localhost:3002/api/obtenerdatostarjeta",{form: newEntity4}, (error, response, body) => {
-                    expect(response.statusCode).not.toBe(404);
-                   })
+                   console.log(response.body)
+                    expect(response.body).not.toBe([]);
+                    done();
+                 })
             });
 
         });
-    });*/
-            
+    });
     
 
     describe("GIVEN: Un usuario administrador quiere consultar las compras de los usuarios", () => { 

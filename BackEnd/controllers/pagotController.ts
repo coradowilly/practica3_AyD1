@@ -13,7 +13,7 @@ class pagotController
     {
         const {userid} = req.body;
         const query = await db.query('SELECT * FROM creditCard WHERE userid=?',[userid]);
-        res.status(200).json(query[0]);
+        res.json(query);
     }
     
 }
