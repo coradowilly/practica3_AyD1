@@ -1,1 +1,34 @@
-<p>historial works!</p>
+<div class="alert alert-primary" role="alert">
+    <h1>Historial</h1>
+</div>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+<!-- Tabla del catalogo -->
+<table class="table">
+
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id transaccion</th>             <!-- cards.id -->
+            <th scope="col">fecha</th>                  <!-- cards.date -->
+            <th scope="col">codigo</th>                 <!-- cards.code -->
+            <th scope="col">monto</th>                  <!-- cards.ammountPaid -->
+            <th scope="col">tipo</th>                   <!-- cards.type -->
+        </tr>
+    </thead>
+
+    <!--    -->
+
+    <tbody>
+        <tr *ngFor="let item of cards">
+            <td> {{item.id_transaction}}            </td>
+            <td> {{item.date}}          </td>
+            <td> {{item.code}}          </td>
+            <td> {{item.ammountPaid}}   </td>
+            <td> {{item.type}}          </td>
+
+        </tr>
+    </tbody>
+
+</table>
+<!-- ----------------------------------------------------------------------------------------------- -->

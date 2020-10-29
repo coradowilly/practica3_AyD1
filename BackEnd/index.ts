@@ -3,6 +3,8 @@ import giftcardRoutes from './routes/giftcardRoutes';
 import registroRoutes from './routes/registroRoutes';
 import loginRoutes from './routes/loginRoutes';
 import pagotRoutes from './routes/pagotRoutes';
+import perfilroutes  from './routes/perfilroutes';
+import adminRoutes from './routes/adminRoutes';
 import cors from 'cors';
 
 class Server
@@ -32,6 +34,8 @@ class Server
         this.app.use('/api/',registroRoutes);
         this.app.use('/api/',loginRoutes);
         this.app.use('/api/',pagotRoutes);
+        this.app.use('/api/',perfilroutes);
+        this.app.use('/api/',adminRoutes);
     }
 
     listen() : void
