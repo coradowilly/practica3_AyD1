@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,6 +13,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RegaloComponent } from './components/regalo/regalo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     HistorialComponent,
     InventarioComponent,
     PerfilComponent,
-    NavigationComponent
+    NavigationComponent,
+    RegaloComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,10 @@
 import express, {Application} from 'express';
 import giftcardRoutes from './routes/giftcardRoutes';
+import registroRoutes from './routes/registroRoutes';
+import loginRoutes from './routes/loginRoutes';
+import pagotRoutes from './routes/pagotRoutes';
+import perfilroutes  from './routes/perfilroutes';
+import adminRoutes from './routes/adminRoutes';
 import cors from 'cors';
 
 class Server
@@ -15,15 +20,22 @@ class Server
 
     config() : void
     {
-        this.app.set('port', 3001);
+        this.app.set('port', 3002);
         this.app.use(cors());
         this.app.use(express.json());
+
+        
         this.app.use(express.urlencoded({extended : false}));
     }
 
     routes() : void
     {
         this.app.use('/api/',giftcardRoutes);
+        this.app.use('/api/',registroRoutes);
+        this.app.use('/api/',loginRoutes);
+        this.app.use('/api/',pagotRoutes);
+        this.app.use('/api/',perfilroutes);
+        this.app.use('/api/',adminRoutes);
     }
 
     listen() : void
