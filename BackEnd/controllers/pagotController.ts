@@ -11,8 +11,8 @@ class pagotController
     }
     async ObtenerIdTarje(req : Request, res : Response) : Promise<void>
     {
-        const {userid,cardNumber} = req.body;
-        const query = await db.query('SELECT * FROM creditCard WHERE userid=? and cardNumber=?',[userid,cardNumber]);
+        const {userid} = req.body;
+        const query = await db.query('SELECT * FROM creditCard WHERE userid=?',[userid]);
         res.status(200).json(query[0]);
     }
     
