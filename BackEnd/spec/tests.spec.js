@@ -27,11 +27,25 @@ describe("Pruebas unitarias", () => {
          })
     });
 
+    //registro usuario
     describe("GIVEN: El usuario intenta registrarse", () => { 
         var newEntity3 = {username:"prueba",email:"prueba@gmail.com",password:"1234",firstname:"Nery",lastname:"Condon",dpi:"123456",age:"23"};
         describe("WHEN: Da click en registrar usuario", ()=>{
             it("THEN: Retorna el status de la peticion", (done)=>{
                 Request.post("http://localhost:3002/api/registro", {form: newEntity3}, (error, response, body) => {
+                expect(response.statusCode).toBe(200);
+                done();
+                })
+            });
+        });
+    });
+
+    //registrar tarjeta
+    describe("GIVEN: El usuario quiere pagar ", () => { 
+        var newEntity3 = {userid:1, cardNumber:132165,nameOnCard:"prueba",expiryDate:'2020-10-09',cvv:555};
+        describe("WHEN: Da click en registrar tarjeta", ()=>{
+            it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
+                Request.post("http://localhost:3001/api/registrartarjeta",{form: newEntity3}, (error, response, body) => {
                     expect(response.statusCode).toBe(200);
                     done();
                 })
@@ -40,6 +54,7 @@ describe("Pruebas unitarias", () => {
         });
     });
 
+    //login
     describe("GIVEN: El usuario intenta acceder (LOGIN)", () => { 
         var newEntity3 = {email:"prueba@gmail.com", password: "12345"};
         describe("WHEN: Da click en iniciar sesion", ()=>{
@@ -48,6 +63,19 @@ describe("Pruebas unitarias", () => {
                 var esta = JSON.parse(response.body).Acceso;
                 expect(esta).toBe("Denegado");
                 done();
+                })
+            });
+        });
+    });
+    
+    //obtener tarjeta
+    describe("GIVEN: El usuario quiere pagar ", () => { 
+        var newEntity3 = {userid:1,cardNumber:123};
+        describe("WHEN: Da click en registrar tarjeta", ()=>{
+            it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
+                Request.post("http://localhost:3001/api/obtenerdatostarjeta",{form: newEntity3}, (error, response, body) => {
+                    expect(response.statusCode).toBe(404);
+                    done();
                 })
             });
 
