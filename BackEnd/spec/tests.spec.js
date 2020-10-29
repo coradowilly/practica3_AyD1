@@ -75,11 +75,29 @@ describe("Pruebas unitarias", () => {
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
                 Request.post("http://localhost:3002/api/obtenerdatostarjeta",{form: newEntity4}, (error, response, body) => {
                     expect(response.statusCode).not.toBe(404);
-                })
+                   })
             });
 
         });
     });*/
+            
+    
+
+    describe("GIVEN: Un usuario administrador quiere consultar las compras de los usuarios", () => { 
+
+        describe("WHEN: Consulta las compras", ()=>{
+            //var send = {id_user:'1',username:'admin',correo: 'useradmin@ayd1.com', nombres:'Analisis', contrasena:'12345', dpi:'123456789', edad:22, apellidos:'Yanosale'};
+            
+            it("THEN: Retorna un mensaje y stauts de verificacion", (done)=>{
+   
+                Request.get("http://localhost:3002/api/getcompras" , (error, response, body) => {;
+                    expect(response.statusCode).toBe(200);
+                    done();
+                })
+            });
+
+        });
+    });
 
     //PRUEBAS UNITARIAS DE PERFIL DE USUARIO
     describe("GIVEN: Un usuario quiere editar los datos de su perfil", () => { 
