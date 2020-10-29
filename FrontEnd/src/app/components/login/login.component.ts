@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.service.login(this.user)
     .subscribe(
       res=>{
+        sessionStorage.setItem("user",JSON.stringify(res));
         this.isSuccess("Loggeado con éxito");
         this.router.navigate(['/']);
       },
