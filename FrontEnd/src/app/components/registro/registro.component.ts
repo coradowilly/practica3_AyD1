@@ -14,12 +14,12 @@ export class RegistroComponent implements OnInit {
   
   newUser:any = {
     username:"",
-    correo: "",
-    nombres:"",
-    constrasena:"",
+    email: "",
+    password:"",
+    firstname:"",
+    lastname:"",
     dpi:"",
-    edad:"",
-    apellidos:""
+    age:""
   }
   
   constructor(private router: Router,private servicio:RegistroService) { }
