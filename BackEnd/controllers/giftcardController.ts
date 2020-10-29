@@ -50,7 +50,8 @@ class GiftCardController
     {
         var id = req.params.id;
         console.log(id);
-        const queryhistorial = await db.query("SELECT t.id, t.date, g.code, tg.ammountPaid, g.type FROM transaction AS t JOIN User AS u ON t.idUser = u.id JOIN giftcard AS g ON u.id = g.ownerId JOIN transaction_giftcard AS tg ON t.idUser = tg.transactionId  WHERE t.idUser = ? ORDER BY t.id, t.date, g.code, tg.ammountPaid, g.type", [id]);
+        const queryhistorial = await db.query("SELECT t.id AS id_transaction, t.date, tg.ammountPaid, g.code, g.type FROM transaction t JOIN transaction_giftcard tg ON t.id = tg.transactionId JOIN giftcard g ON tg.giftcardId = g.id WHERE t.idUser = ? ", [id]);
+        console.log(queryhistorial);
         res.status(200).json(queryhistorial);
     }
     
