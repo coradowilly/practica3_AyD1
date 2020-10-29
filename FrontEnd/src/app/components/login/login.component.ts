@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
   user: any = {
-    correo: '',
-    contrasena: '',
+    email: '',
+    password: '',
   };
 
   constructor(private router: Router, private service:LoginService) { }
