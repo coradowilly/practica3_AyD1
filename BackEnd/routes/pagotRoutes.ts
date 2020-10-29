@@ -15,9 +15,8 @@ class pagotRoutes
     config() : void
     {
         this.router.post('/registrartarjeta',pagotControll.RegistrarTCRE);
-
         this.router.post('/obtenerdatostarjeta',pagotControll.ObtenerIdTarje);
-
+        this.router.post('/eliminartarjeta',pagotControll.eliminartarjeta);
     }
 }
 const pagoteRoutes = new pagotRoutes();

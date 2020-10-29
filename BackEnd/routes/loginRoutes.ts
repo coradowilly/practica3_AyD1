@@ -15,6 +15,7 @@ class loginRoutes
     config() : void
     {
         this.router.post('/login',loginControll.Login);
+        this.router.post('/eliminauser',loginControll.eliminar);
     }
 }
 const logineRoutes = new loginRoutes();

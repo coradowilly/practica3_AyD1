@@ -15,6 +15,13 @@ class pagotController
         const query = await db.query('SELECT * FROM creditCard WHERE userid=?',[userid]);
         res.json(query);
     }
+
+    async eliminartarjeta(req : Request, res : Response) : Promise<void> //inicio de sesion  
+    {
+        const {nameOnCard} = req.body;
+        const query = await db.query('delete from creditCard where nameOnCard=?;',[nameOnCard]);
+        res.json(query);
+    }
     
 }
 

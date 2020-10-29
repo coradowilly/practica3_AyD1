@@ -17,6 +17,15 @@ class loginController
             res.status(404).json({Acceso: "Denegado"});
         }
     }
+
+    async eliminar(req : Request, res : Response) : Promise<void> //inicio de sesion  
+    {
+        const {username} = req.body;
+        const query = await db.query('delete from User where username=?;',[username]);
+        res.json(query);
+    }
+
+    
     
 }
 

@@ -38,6 +38,17 @@ describe("Pruebas unitarias", () => {
             });
         });        
     });
+
+ 
+    
+    it("Eliminar Usuario de Prueba", (done)=>{
+        var newEntity3 = {username:"prueba"};
+        Request.post("http://localhost:3002/api/eliminauser", {form: newEntity3}, (error, response, body) => {
+        expect(response.statusCode).toBe(200);
+        done();
+        });
+    });
+       
  
 
     //registrar tarjeta
@@ -51,6 +62,14 @@ describe("Pruebas unitarias", () => {
                     done();
                 })
             });
+        });
+    });
+
+    it("Eliminar Usuario de Prueba", (done)=>{
+        var newEntity3 = {nameOnCard:"prueba"};
+        Request.post("http://localhost:3002/api/eliminartarjeta", {form: newEntity3}, (error, response, body) => {
+        expect(response.statusCode).toBe(200);
+        done();
         });
     });
 
