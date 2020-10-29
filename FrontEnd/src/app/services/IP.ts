@@ -1,3 +1,3 @@
-var ip = `http://18.206.168.172:3001/api/`;
+var ip = `http://18.206.168.172:3002/api/`;
 
 export default ip;

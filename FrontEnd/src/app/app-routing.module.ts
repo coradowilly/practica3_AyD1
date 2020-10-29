@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CatalogoComponent} from './components/catalogo/catalogo.component';
+import {HistorialComponent} from './components/historial/historial.component';
 
 const routes: Routes = [
-  { path: "catalogo", component: CatalogoComponent }
+  { path: "catalogo", component: CatalogoComponent },
+  { path: "historial", component: HistorialComponent }
 ];
 
 @NgModule({
