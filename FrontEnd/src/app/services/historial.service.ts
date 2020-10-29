@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import ip  from './IP'
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class HistorialService
       /** constructor */
   }
 
-  getHistorial()
+  getHistorial(id:any)
   {
-    return this.http.get(`${this.API_URI}`);
+    return this.http.post(ip + "", id);
   }
   
 }

@@ -11,10 +11,19 @@ export class HistorialComponent implements OnInit
 {
 
   public historial:any;
+  public user:any;
 
   constructor(private historialService:HistorialService, private router: Router) 
   { 
       /** Codigo de constructor -- */
+      if (JSON.parse(localStorage.getItem('usuario')) != null) 
+      {
+          this.user = JSON.parse(localStorage.getItem('usuario'));
+      }
+      else
+      {
+          this.user = { id: 0 };
+      }
   }
 
   ngOnInit(): void 
@@ -25,8 +34,8 @@ export class HistorialComponent implements OnInit
   public showHistorial() 
   { 
       /** Codigo de showHistorial -- */
-      
-      this.historialService.getHistorial().subscribe(
+      let id = this.user.id;
+      this.historialService.getHistorial(id).subscribe(
         (res) =>
         {
           console.log(res);
