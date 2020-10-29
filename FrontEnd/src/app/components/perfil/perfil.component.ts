@@ -18,7 +18,7 @@ export class PerfilComponent implements OnInit {
     password:"",
     firstname:"",
     lastname:"",
-    dpi:"",
+    dpi:0,
     age:0
   }
   

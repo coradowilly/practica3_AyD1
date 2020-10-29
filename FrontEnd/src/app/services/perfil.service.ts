@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class PerfilService {
 
-  API_URI = 'http://18.206.168.172:3002/api/';
+  API_URI = 'http://18.206.168.172:3002/api';
 
   constructor(private http: HttpClient) { }
 
