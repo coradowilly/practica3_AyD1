@@ -41,6 +41,7 @@ describe("Pruebas unitarias", () => {
  
 
     //registrar tarjeta
+ 
     describe("GIVEN: El usuario quiere pagar ", () => { 
         var newEntity3 = {userid:1, cardNumber:132165,nameOnCard:"prueba",expiryDate:'2020-10-09',cvv:555};
         describe("WHEN: Da click en registrar tarjeta", ()=>{
@@ -50,7 +51,6 @@ describe("Pruebas unitarias", () => {
                     done();
                 })
             });
-
         });
     });
 
@@ -69,22 +69,37 @@ describe("Pruebas unitarias", () => {
     });
     
     //obtener tarjeta
-    describe("GIVEN: El usuario quiere pagar ", () => { 
-        var newEntity3 = {userid:1,cardNumber:123};
+    /*describe("GIVEN: El usuario quiere pagar ", () => { 
+        var newEntity4 = {userid:1,cardNumber:123};
         describe("WHEN: Da click en registrar tarjeta", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
-                Request.post("http://localhost:3002/api/obtenerdatostarjeta",{form: newEntity3}, (error, response, body) => {
+                Request.post("http://localhost:3002/api/obtenerdatostarjeta",{form: newEntity4}, (error, response, body) => {
                     expect(response.statusCode).not.toBe(404);
+                })
+            });
+
+        });
+    });*/
+
+    //PRUEBAS UNITARIAS DE PERFIL DE USUARIO
+    describe("GIVEN: Un usuario quiere editar los datos de su perfil", () => { 
+
+        describe("WHEN: envia sus nuevos valores", ()=>{
+            var send = {id:'1',username:'admin',email: 'useradmin@ayd1.com', firstname:'Analisis', password:'12345', dpi:'123456789', age:22, lastname:'Yanosale'};
+           
+            it("THEN: Retorna un mensaje de verificacion", (done)=>{
+   
+                Request.post("http://localhost:3002/api/editperfil", {form:send} , (error, response, body) => {;
+                    expect(response.statusCode).not.toBe(200);
                     done();
                 })
             });
 
         });
-    
     });
+
     
-    
-   // });
+
     
 
     it("GET /getHistorial - statusCode|Content-Type|BodyLength", (done) => 
