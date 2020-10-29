@@ -44,9 +44,9 @@ describe('InventarioComponent', () => {
       describe("Then: La variable 'historial' obtiene valores de la API", function(){
           it('Muestra ', () => {
               service.inventario = { mock:"mocked!" };
-              component.inventario = service.getInventario();
+              component.cards = service.getInventario();
               component.showInventario();
-              expect(component.inventario).toEqual(service.getInventario());
+              expect(component.cards).toEqual(service.getInventario());
           });
       });
     });
