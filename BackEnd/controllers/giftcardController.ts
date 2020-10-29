@@ -44,6 +44,17 @@ class GiftCardController
     }
 
 
+
+    //HISTORIAL DE COMPRAS 
+    async getHistorialCompras(req : Request, res : Response) : Promise<void> //obtener todas las compras de tarjetas de un usuario
+    {
+        var id = req.params.id;
+        console.log(id);
+        const queryhistorial = await db.query("SELECT t.id AS id_transaction, t.date, tg.ammountPaid, g.code, g.type FROM transaction t JOIN transaction_giftcard tg ON t.id = tg.transactionId JOIN giftcard g ON tg.giftcardId = g.id WHERE t.idUser = ? ", [id]);
+        console.log(queryhistorial);
+        res.status(200).json(queryhistorial);
+    }
+    
 }
 
 export const giftCardController = new GiftCardController();
