@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from '../../services/login.service'
 
 import { LoginComponent } from './login.component';
 
@@ -48,8 +50,9 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
-      declarations: [ LoginComponent ]
+      imports: [RouterTestingModule, HttpClientTestingModule, HttpClientModule],
+      declarations: [ LoginComponent ],
+      providers: [ LoginService ]
     })
     .compileComponents();
     service = new MockLogin();
@@ -62,12 +65,13 @@ describe('LoginComponent', () => {
   });
 
   it('should create', () => {
+    const serviceLogin:LoginService = TestBed.get(LoginService)
     expect(component).toBeTruthy();
   });
 
   // Unit Test 
   // Mock Login
-  describe("Given: El usuario intenta iniciar sesion", ()=>{
+  describe("Given: El usuario intenta iniciar sesion (Mock)", ()=>{
     describe("When: Da click al botón",()=>{
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect login return true",()=>{
@@ -82,7 +86,7 @@ describe('LoginComponent', () => {
     });
   });
 
-  describe("Given: El usuario intenta iniciar sesion", ()=>{
+  describe("Given: El usuario intenta iniciar sesion (Mock)", ()=>{
     describe("When: Da click al botón",()=>{
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect login return false",()=>{
@@ -96,4 +100,20 @@ describe('LoginComponent', () => {
       });
     });
   });
+
+  describe("Given: El usuario intenta iniciar sesion", ()=>{
+    describe("When: Da click al botón",()=>{
+      describe("Then: Retorna un valor booleano",()=>{
+        it("Expect login return true",()=>{
+          let correctUser:any = {
+            correo:'alvmilio@gmail.com',
+            contrasena:'efe123'
+          }  
+          component.user = correctUser;
+          expect(component.login()).toBeUndefined();
+        });
+      });
+    });
+  });
+
 });
