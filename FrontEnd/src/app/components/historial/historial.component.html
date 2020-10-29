@@ -9,7 +9,7 @@
 
     <thead class="thead-dark">
         <tr>
-            <th scope="col">id tarjeta</th>             <!-- cards.id -->
+            <th scope="col">id transaccion</th>             <!-- cards.id -->
             <th scope="col">fecha</th>                  <!-- cards.date -->
             <th scope="col">codigo</th>                 <!-- cards.code -->
             <th scope="col">monto</th>                  <!-- cards.ammountPaid -->
@@ -21,7 +21,7 @@
 
     <tbody>
         <tr *ngFor="let item of cards">
-            <td> {{item.id}}            </td>
+            <td> {{item.id_transaction}}            </td>
             <td> {{item.date}}          </td>
             <td> {{item.code}}          </td>
             <td> {{item.ammountPaid}}   </td>

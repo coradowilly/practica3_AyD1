@@ -15,15 +15,15 @@ export class HistorialComponent implements OnInit
   constructor(private historialService:HistorialService) 
   { 
       /** Codigo de constructor -- */ 
-      if (JSON.parse(localStorage.getItem('usuario')) != null) 
+      if (JSON.parse(localStorage.getItem('user')) != null) 
       {
-          this.user = JSON.parse(localStorage.getItem('usuario'));
+          this.user = JSON.parse(localStorage.getItem('user'));
       }
       else
       {
-          this.user = { id: 0 };
+          this.user = { id: 1 };
       }
-      //this.showHistorial();
+      this.showHistorial();
   }
 
   ngOnInit(): void 
