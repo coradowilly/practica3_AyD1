@@ -45,7 +45,7 @@ describe("Pruebas unitarias", () => {
         var newEntity3 = {userid:1, cardNumber:132165,nameOnCard:"prueba",expiryDate:'2020-10-09',cvv:555};
         describe("WHEN: Da click en registrar tarjeta", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
-                Request.post("http://localhost:3001/api/registrartarjeta",{form: newEntity3}, (error, response, body) => {
+                Request.post("http://localhost:3002/api/registrartarjeta",{form: newEntity3}, (error, response, body) => {
                     expect(response.statusCode).toBe(200);
                     done();
                 })
@@ -73,8 +73,8 @@ describe("Pruebas unitarias", () => {
         var newEntity3 = {userid:1,cardNumber:123};
         describe("WHEN: Da click en registrar tarjeta", ()=>{
             it("THEN: Retorna un estado de verificacion de transaccion", (done)=>{
-                Request.post("http://localhost:3001/api/obtenerdatostarjeta",{form: newEntity3}, (error, response, body) => {
-                    expect(response.statusCode).toBe(404);
+                Request.post("http://localhost:3002/api/obtenerdatostarjeta",{form: newEntity3}, (error, response, body) => {
+                    expect(response.statusCode).not.toBe(404);
                     done();
                 })
             });
