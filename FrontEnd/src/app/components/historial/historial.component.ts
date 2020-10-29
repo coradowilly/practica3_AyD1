@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
 import {HistorialService} from '../../services/historial.service';
 
 @Component({
@@ -10,12 +9,12 @@ import {HistorialService} from '../../services/historial.service';
 export class HistorialComponent implements OnInit 
 {
 
-  public historial:any;
+  public cards:any;
   public user:any;
 
-  constructor(private historialService:HistorialService, private router: Router) 
+  constructor(private historialService:HistorialService) 
   { 
-      /** Codigo de constructor -- */
+      /** Codigo de constructor -- */ 
       if (JSON.parse(localStorage.getItem('usuario')) != null) 
       {
           this.user = JSON.parse(localStorage.getItem('usuario'));
@@ -24,6 +23,7 @@ export class HistorialComponent implements OnInit
       {
           this.user = { id: 0 };
       }
+      //this.showHistorial();
   }
 
   ngOnInit(): void 
@@ -39,7 +39,7 @@ export class HistorialComponent implements OnInit
         (res) =>
         {
           console.log(res);
-          this.historial = res;
+          this.cards = res;
         },
         (error) =>
         {

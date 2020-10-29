@@ -43,9 +43,9 @@ describe('HistorialComponent', () => {
       describe("Then: La variable 'historial' obtiene valores de la API", function(){
           it('Muestra ', () => {
               service.card = { mock:"mocked!" };
-              component.historial = service.getHistorial();
+              component.cards = service.getHistorial();
               component.showHistorial();
-              expect(component.historial).toBeDefined();
+              expect(component.cards).toBeDefined();
           });
       });
     });
