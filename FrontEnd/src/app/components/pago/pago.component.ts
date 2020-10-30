@@ -12,7 +12,7 @@ export class PagoComponent implements OnInit
 
     /**
      * FALTAN:
-     * 01. mostrat todo el carrito
+     * 01. mostrat todo el carrito DONE
      * 02. hacer la compra tal cual eligiendo una tarjeta
      * 03. pruebas a todo
      */
@@ -31,15 +31,16 @@ export class PagoComponent implements OnInit
     constructor(private pagosservice:PagosService) 
     { 
         /** Codigo de constructor -- */ 
-        if (JSON.parse(localStorage.getItem('user')) != null) 
+        if (JSON.parse(localStorage.getItem("user")) != null) 
         {
-            this.user = JSON.parse(localStorage.getItem('user'));
+            this.user = JSON.parse(localStorage.getItem("user"));
         }
         else
         {
             this.user = { id: 1 };
         }
         this.showAllTarjetasDisponibles();
+        this.showwCarrito();
     }
 
     ngOnInit(): void 
@@ -101,6 +102,42 @@ export class PagoComponent implements OnInit
 
     public showwCarrito()
     {
+        this.carrito = JSON.parse(localStorage.getItem("carrito"));
+        console.log(this.carrito);
+    } 
+
+    public comprar(item:any)
+    {
+        /** comprar */
+        let giftCardsAUX:any = [];
+        for (let index = 0; index < this.carrito.length; index++) 
+        {
+          const element = this.carrito[index];
+          let aux = {
+            type:element.id,
+            credit:element.availability,
+            ammountPaid: (element.availability * element.chargeRate)
+          };
+          giftCardsAUX.push(aux);
+        }
+
+        let compra = {
+          giftCards:giftCardsAUX,
+          creditCard:item.id,
+          userid:this.user.id 
+        };
+        console.log(compra)
+
+        this.pagosservice.comprar(compra).subscribe(
+          (res) =>
+          {
+            console.log(res);
+          },
+          (error) =>
+          {
+            console.log(error)
+          }
+        );
 
     }
 

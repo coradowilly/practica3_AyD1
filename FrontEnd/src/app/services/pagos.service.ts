@@ -19,4 +19,9 @@ export class PagosService {
   {
     return this.http.post(ip + "obtenerdatostarjeta", id);
   }
+
+  public comprar(datos:any)
+  {
+    return this.http.post(ip + "giftcards/placeOrder", datos);
+  }
 }
