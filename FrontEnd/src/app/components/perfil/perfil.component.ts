@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
   constructor(private router: Router, private servicio:PerfilService) { }
 
   ngOnInit(): void {
-    this.newUser = JSON.parse(sessionStorage.getItem("user"));
+    this.newUser = JSON.parse(localStorage.getItem("user"));
   }
 
   actualizar(){
@@ -33,7 +33,7 @@ export class PerfilComponent implements OnInit {
     .subscribe(
       res=>{
         this.isSuccess("Actualizado con exito");
-        sessionStorage.setItem("user",JSON.stringify(this.newUser));
+        localStorage.setItem("user",JSON.stringify(this.newUser));
       },
       err=>{
         this.isError("No se pudo actualizar");

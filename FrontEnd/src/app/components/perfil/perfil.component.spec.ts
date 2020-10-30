@@ -1,19 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { PerfilService } from '../../services/perfil.service';
 
 import { PerfilComponent } from './perfil.component';
 
 class MockRegister{
 
   user:any = {
-    nombre:"",
-    apellido: "",
-    email:"",
-    password:"",
-    celular:"",
-    nit:"",
-    direccion:""
+      id: 0, 
+      username: "",
+      email: "",
+      password: "",
+      firstname: "",
+      lastname: "",
+      dpi: 0,
+      age: 0
   }
 
   update():boolean{
@@ -31,8 +34,8 @@ class MockRegister{
   }
 
   queryDB(user:any):boolean{
-    if(this.user.nombre != "" && this.user.apellido != "" && this.user.email != "" && this.user.nombre != "" &&
-      this.user.password != "" && this.user.celular != "" && this.user.nit != "" && this.user.direccion != "" ){
+    if(user.id != 0 && user.username != "" && user.email != "" && user.password != "" 
+    && user.firstname != "" && user.lastname != "" && user.dpi != 0 && user.age != 0){
       return true;
     } else {
       return false;
@@ -47,8 +50,9 @@ describe('PerfilComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, HttpClientTestingModule ],
-      declarations: [ PerfilComponent ]
+      imports: [ RouterTestingModule, HttpClientTestingModule, HttpClientModule ],
+      declarations: [ PerfilComponent ],
+      providers: [ PerfilService ]
     })
     .compileComponents();
   });
@@ -61,23 +65,25 @@ describe('PerfilComponent', () => {
   });
 
   it('should create', () => {
+    const servicePerfil:PerfilService = TestBed.get(PerfilService)
     expect(component).toBeTruthy();
   });
 
   // Unit Test 
   // Mock Registro 
-  describe("Given: El usuario intenta actualizar su perfil", ()=>{
+  describe("Given: El usuario intenta actualizar su perfil (Mock)", ()=>{
     describe("When: Da click al botón",()=>{
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect update return true",()=>{
           let user:any = {
-            nombre:"Alvin",
-            apellido: "Espino",
-            email:"alvine@gmail.com",
-            password:"12345",
-            celular:"77788800",
-            nit:"987654S",
-            direccion:"usac ingenieria"
+            id: 1, 
+            username: "alvmilio",
+            email: "alvmilio0497@gmail.com",
+            password: "efe123",
+            firstname: "Alvin",
+            lastname: "Alegría",
+            dpi: 123,
+            age: 24
           }
           service.user = user;
           expect(service.update()).toEqual(true);
@@ -86,21 +92,43 @@ describe('PerfilComponent', () => {
     });
   });
 
-  describe("Given: El usuario intenta actualizar su perfil", ()=>{
+  describe("Given: El usuario intenta actualizar su perfil (Mock)", ()=>{
     describe("When: Da click al botón",()=>{
       describe("Then: Retorna un valor booleano",()=>{
         it("Expect update return false",()=>{
           let user:any = {
-            nombre:"",
-            apellido: "",
-            email:"",
-            password:"",
-            celular:"",
-            nit:"",
-            direccion:""
+            id: 0, 
+            username: "",
+            email: "",
+            password: "",
+            firstname: "",
+            lastname: "",
+            dpi: 0,
+            age: 0
           }
           service.user = user;
           expect(service.update()).not.toEqual(true);
+        });
+      });
+    });
+  });
+
+  describe("Given: El usuario intenta actualizar su perfil", ()=>{
+    describe("When: Da click al botón",()=>{
+      describe("Then: Retorna un valor booleano",()=>{
+        it("Expect update return true",()=>{
+          let user:any = {
+            id: 1, 
+            username: "alvmilio",
+            email: "alvmilio0497@gmail.com",
+            password: "efe123",
+            firstname: "Alvin",
+            lastname: "Alegría",
+            dpi: 123,
+            age: 24
+          }
+          component.newUser = user;
+          expect(component.actualizar()).toBeUndefined();
         });
       });
     });
