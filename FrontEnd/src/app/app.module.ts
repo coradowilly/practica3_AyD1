@@ -12,8 +12,8 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LoginService } from './services/login.service';
-import { HttpClientModule } from '@angular/common/http';
 import { RegaloComponent } from './components/regalo/regalo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
