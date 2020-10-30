@@ -44,7 +44,8 @@
             <tr>
                 <th scope="col">no tarjeta</th>             
                 <th scope="col">nombre en tarjeta</th>                  
-                <th scope="col">expira el</th>                                      
+                <th scope="col">expira el</th>    
+                <th scope="col">comprar</th>                                   
             </tr>
         </thead>
     
@@ -55,8 +56,39 @@
                 <td> {{item.cardNumber}}    </td>
                 <td> {{item.nameOnCard}}    </td>
                 <td> {{item.expiryDate}}    </td>
+                <td>
+                    <button class="btn-success" (click)="comprar(item)"><i class="fas fa-cart-plus"></i> &nbsp;&nbsp; Agregar</button>
+                </td>
             </tr>
         </tbody>
+    
+    </table>
+</div>
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+<hr>
+
+<!-- ver que vamos a comprar -->
+<div>
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">nombre giftcard</th>             
+                <th scope="col">cargo</th>                  
+                <th scope="col">tipo</th>                                      
+            </tr>
+        </thead>
+    
+        <!--    -->
+    
+        <tbody>
+            <tr *ngFor="let item of carrito">
+                <td> {{item.name}}    </td>
+                <td> {{item.chargeRate}}    </td>
+                <td> {{item.availability}}    </td>
+            </tr>
+        </tbody> 
     
     </table>
 </div>

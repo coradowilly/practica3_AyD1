@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
     this.service.login(this.user)
     .subscribe(
       res=>{
-        sessionStorage.setItem("user",JSON.stringify(res));
+        console.log(res)
+        localStorage.setItem("user",JSON.stringify(res));
         this.isSuccess("Loggeado con éxito");
-        this.router.navigate(['/']);
+        this.router.navigate(['/catalogo']);
       },
       err=>{
         this.isError("Las credenciales no son correctas");

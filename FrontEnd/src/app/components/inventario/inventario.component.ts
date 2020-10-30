@@ -17,9 +17,9 @@ export class InventarioComponent implements OnInit
   constructor(private inventario_service:InventarioService) 
   { 
       /** Codigo de constructor -- */
-      if (JSON.parse(localStorage.getItem('usuario')) != null) 
+      if (JSON.parse(localStorage.getItem('user')) != null) 
       {
-          this.user = JSON.parse(localStorage.getItem('usuario'));
+          this.user = JSON.parse(localStorage.getItem('user'));
       }
       else
       {
