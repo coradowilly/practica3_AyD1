@@ -14,6 +14,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { LoginService } from './services/login.service';
 import { RegaloComponent } from './components/regalo/regalo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     InventarioComponent,
     PerfilComponent,
     NavigationComponent,
-    RegaloComponent
+    RegaloComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
