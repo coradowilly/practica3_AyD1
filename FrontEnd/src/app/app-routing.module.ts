@@ -6,6 +6,7 @@ import {HistorialComponent} from './components/historial/historial.component';
 import {PagoComponent} from './components/pago/pago.component';
 import {InventarioComponent} from './components/inventario/inventario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: "historial", component: HistorialComponent },
   { path: "pago", component: PagoComponent },
   { path: "inventario", component: InventarioComponent },
-  { path:"profile", component:PerfilComponent }
+  { path:"profile", component:PerfilComponent },
+  { path:"signup", component:RegistroComponent }
 ];
 
 @NgModule({
