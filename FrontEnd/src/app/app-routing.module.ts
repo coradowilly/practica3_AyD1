@@ -10,6 +10,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: "catalogo", component: CatalogoComponent },
   { path: "historial", component: HistorialComponent },

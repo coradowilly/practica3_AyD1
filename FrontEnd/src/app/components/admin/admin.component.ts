@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { carrito } from 'src/app/models/carrito';
 import { CatalogoService } from 'src/app/services/catalogo.service';
 import { TransaccionService } from 'src/app/services/transaccion.service';
@@ -15,7 +16,7 @@ export class AdminComponent implements OnInit {
   public cardsCat:any;
   public carrito: Array<carrito>; 
 
-  constructor(private transaccionService:TransaccionService, private catalogoservice:CatalogoService) 
+  constructor(private router:Router, private transaccionService:TransaccionService, private catalogoservice:CatalogoService) 
   { 
       /** Codigo de constructor -- */ 
       if (JSON.parse(localStorage.getItem('user')) != null) 
@@ -33,6 +34,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    if(localStorage.getItem("user") == null){
+      console.log(localStorage.getItem("user"))
+      this.router.navigate(['/']);
+    }
       /** Codigo de ngOnInit -- */
   }
 
