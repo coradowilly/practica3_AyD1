@@ -1,0 +1,41 @@
+<div class="alert alert-primary" role="alert">
+    <h1>Inventario</h1>
+</div>
+
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+<h5>&nbsp;&nbsp;Hoy estas generoso? regala una tarjeta!</h5>
+&nbsp;&nbsp; Ingresa el ID de tu beneficiario, nosotros le recordaremos cuanto lo quieres:  &nbsp;&nbsp;
+<input type="text" id="buscar_textfield" [(ngModel)]="id_beneficiario.id">
+<hr>
+
+<!-- Tabla del catalogo -->
+<table class="table">
+
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id tarjeta</th>             <!-- cards.id -->
+            <th scope="col">credit</th>                 <!-- cards.credit -->
+            <th scope="col">codigo</th>                 <!-- cards.code -->
+            <th scope="col">tipo</th>                   <!-- cards.type -->
+            <th scope="col"></th>                <!-- botton de regalar  -->
+        </tr>
+    </thead>
+
+    <!--    -->
+
+    <tbody>
+        <tr *ngFor="let item of cards">
+            <td> {{item.id}}            </td>
+            <td> {{item.credit}}        </td>
+            <td> {{item.code}}          </td>
+            <td> {{item.type}}          </td>
+            <td>
+                <button class="btn-success" (click)="regalar(item)"><i class="fas fa-cart-plus"></i> Regalar </button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+<!-- ----------------------------------------------------------------------------------------------- -->
